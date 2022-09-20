@@ -1,0 +1,95 @@
+body {
+  background-color: #2f2f2f;
+  font-family: Comic Sans MS;
+}
+
+
+.header {
+  color: rgb(45, 233, 45);
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  font-family: proxima sans;
+}
+
+.submitLine {
+  color: white;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  min-width: 300px;
+  border-color: white;
+  white-space: nowrap;
+  flex-grow: 3;
+}
+
+.taskSub {
+  // border-style: solid;
+  border-color: white;
+}
+
+#textBox {
+  display: flex;
+  width: 400px;
+  flex-grow: 2;
+}
+
+#sprint {
+  display: flex;
+  background-color: rgb(45, 233, 45);
+  color: black;
+  border-radius: 5%;
+  font-size: 20px;
+  margin-right: 5px;
+  font-weight: 3;
+}
+
+#taskContainer {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  // align-items: flex-start;
+  min-width: 200px;
+  min-height: 400px;
+  flex-grow: 1;
+}
+
+#leftBox {
+  background-color: rgb(184, 15, 35);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 4px;
+}
+
+#middleBox {
+  background-color: rgb(195, 215, 67);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 4px;
+}
+
+#rightBox {
+  background-color: rgb(41, 109, 40);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  margin: 4px;
+}
+
+.toBe {
+  border-style: dotted;
+  border-color: rgb(255, 255, 255);
+  min-width: 180px;
+  flex-grow: 2;
+  align-items: center;
+}
+
+.newTask {
+  display: flex;
+
+}
+
