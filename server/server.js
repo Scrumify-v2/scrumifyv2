@@ -3,19 +3,21 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-
+//const session = require('express-session');
+//const sessionConfig = require('./sessionConfig');
 const projectRouter = require('./routes/projects');
 const userRouter = require('./routes/users');
 const taskRouter = require('./routes/taskRouter');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+//app.use(session(sessionConfig));
 
 app.use(express.static(path.resolve(__dirname, '')));
 
 app.use('/projects', projectRouter);
 
-//app.use('user/task', taskRouter);
+app.use('user/task', taskRouter);
 app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
