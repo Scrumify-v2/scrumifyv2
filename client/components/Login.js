@@ -9,6 +9,7 @@ const Login = () => {
   const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const [invalidEntry, setInvalidEntry] = useState(false);
 
   /*****************
    * HELPER FUNCTIONS
@@ -24,8 +25,7 @@ const Login = () => {
   };
 
   const handleLogInButton = async (e) => {
-    //check text inputs
-    if (!username || !password)
+    if (!username || !password) return setInvalidEntry(true);
 
     const payload = { username: username, password: password };
     //fetch call to api to verify username and password
@@ -56,7 +56,16 @@ const Login = () => {
       <button type='button' onClick={handleLogInButton}>
         Log In
       </button>
-      <p>
+
+      {invalidEntry ? (
+        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+          Invalid entry. Please check your username or password.
+        </p>
+      ) : (
+        ''
+      )}
+
+      <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
         Don't have an account?{' '}
         <a href='#' onClick={() => handleSignUpLink()}>
           Sign Up

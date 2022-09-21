@@ -9,6 +9,7 @@ const Signup = () => {
   const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const [invalidEntry, setInvalidEntry] = useState(false);
 
   /*****************
    * HELPER FUNCTIONS
@@ -22,6 +23,8 @@ const Signup = () => {
   };
 
   const handleSignUpButton = async (e) => {
+    if (!username || !password) return setInvalidEntry(true);
+
     const payload = { username: username, password: password };
     //fetch call to api to create new user account
     const verifiedUser = await Api.signup(payload);
@@ -51,10 +54,17 @@ const Signup = () => {
       <button type='button' onClick={handleSignUpButton}>
         Sign Up
       </button>
-      <p>
-        Already have an account?{' '}
+      {invalidEntry ? (
+        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+          Invalid entry. Please check your username or password.
+        </p>
+      ) : (
+        ''
+      )}
+      <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+        Have an account?{' '}
         <a href='#' onClick={() => handleLogInLink()}>
-          Click here!
+          Log In
         </a>
       </p>
     </div>
