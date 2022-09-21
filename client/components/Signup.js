@@ -4,7 +4,6 @@ import { UserContext } from '../App';
 import Api from './Api';
 
 const Signup = () => {
-  console.log('THIS IS HERE');
   const navigate = useNavigate();
   // State & Context hooks
   const [user, setUser] = useContext(UserContext);
@@ -39,7 +38,7 @@ const Signup = () => {
    ****************/
 
   return (
-    <div id='signup'>
+    <div id='signup' className='auth'>
       <h1>Scrumify</h1>
       <div>
         <p>Username</p>
@@ -54,9 +53,9 @@ const Signup = () => {
       </button>
       <p>
         Already have an account?{' '}
-        <button type='button' onClick={handleLogInLink}>
+        <a href='#' onClick={() => handleLogInLink()}>
           Click here!
-        </button>
+        </a>
       </p>
     </div>
   );

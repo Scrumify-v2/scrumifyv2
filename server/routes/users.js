@@ -6,7 +6,6 @@ const userController = require('../controllers/userController');
 const cookieController = require('../controllers/cookieController');
 const sessionController = require('../controllers/sessionController');
 
-
 router.get('/', userController.getUsers, (req, res) => {
   return res.status(200).json(res.locals.users);
 });
@@ -26,13 +25,11 @@ router.post('/login', userController.verifyUser, (req, res) => {
 //   return res.status(200).redirect('/secret');
 // });
 router.get('/user/task/:username', userController.getAllTasks, (req, res) => {
-  return res.status(200)
-})
-
+  return res.status(200);
+});
 
 router.post('/logout', sessionController.logOut, (req, res) => {
   return res.status(200).redirect('/login');
 });
-
 
 module.exports = router;

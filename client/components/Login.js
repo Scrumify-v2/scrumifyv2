@@ -24,6 +24,9 @@ const Login = () => {
   };
 
   const handleLogInButton = async (e) => {
+    //check text inputs
+    if (!username || !password)
+
     const payload = { username: username, password: password };
     //fetch call to api to verify username and password
     const verifiedUser = await Api.login(payload);
@@ -40,7 +43,7 @@ const Login = () => {
    ****************/
 
   return (
-    <div id='login'>
+    <div id='login' className='auth'>
       <h1>Scrumify</h1>
       <div>
         <p>Username</p>
@@ -55,9 +58,9 @@ const Login = () => {
       </button>
       <p>
         Don't have an account?{' '}
-        <button type='button' onClick={() => handleSignUpLink()}>
+        <a href='#' onClick={() => handleSignUpLink()}>
           Sign Up
-        </button>
+        </a>
       </p>
     </div>
   );

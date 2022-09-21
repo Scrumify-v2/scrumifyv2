@@ -1,8 +1,30 @@
 body {
-  background-color: gray;
+  height: 1080px;
+  background-color: rgb(80,80,80);
   font-family: Comic Sans MS;
 }
 
+.auth {
+  background-color:rgb(200, 200, 200);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;;
+  align-items: center;
+  height: 400px;
+  width: 300px;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(230, 230, 230);
+  box-shadow: 2px 2px 8px rgb(50,50,50);
+  }
+
+a.hover {
+  cursor: pointer;
+}
 
 .header {
   color: rgb(45, 233, 45);
