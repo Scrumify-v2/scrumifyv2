@@ -6,6 +6,7 @@ const PORT = 3000;
 
 const projectRouter = require('./routes/projects');
 const userRouter = require('./routes/users');
+const taskRouter = require('./routes/taskRouter');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -13,7 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '')));
 
 app.use('/projects', projectRouter);
-app.use('/users', userRouter);
+
+app.use('user/task', taskRouter);
+app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/index.html'));
