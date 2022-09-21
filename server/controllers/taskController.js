@@ -50,7 +50,7 @@ taskController.moveTask = async (req, res, next) => {
     const { taskId, progress } = req.body;
     const movedTask = await Task.findByIdAndUpdate(taskId, {
       progress: progress,
-    });
+    }, {new: true});
     res.locals.movedTask = movedTask;
     return next();
   } catch (error) {
@@ -67,7 +67,7 @@ taskController.updateContent = async (req, res, next) => {
     const { taskId, content } = req.body;
     const updatedContentTask = await Task.findByIdAndUpdate(taskId, {
       content: content,
-    });
+    }, {new: true});
     res.locals.updatedTask = updatedContentTask;
     return next();
   } catch (error) {
