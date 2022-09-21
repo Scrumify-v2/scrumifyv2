@@ -15,9 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '')));
 
-app.use('/projects', projectRouter);
+// app.use('/projects', projectRouter);
 
-app.use('user/task', taskRouter);
+app.use('/task', taskRouter);
 app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
@@ -48,7 +48,7 @@ app.use((err, req, res, next) => {
   const errorObj = Object.assign({}, defaultErr, err);
   // console.log(errorObj.log); // -> this was the original
   console.log(errorObj);
-  return res.status(errorObj.status).json(errorObj.message);
+  return res.status(errorObj.status).json(errorObj);
 });
 
 app.listen(PORT, () => {
