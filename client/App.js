@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Signup from './components/Signup';
+
 const UserContext = createContext([{}, () => {}]);
 const App = () => {
   //set user state
