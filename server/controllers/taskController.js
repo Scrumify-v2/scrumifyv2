@@ -1,5 +1,5 @@
 //need to add tasks from Models
-const Task = require('../models/models');
+const { Task } = require('../models/models');
 
 const taskController = {};
 /* 

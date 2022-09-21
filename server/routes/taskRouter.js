@@ -10,11 +10,11 @@ router.post('/', taskController.createNewTask, (req, res) => {
   res.status(200).json(res.locals.newTask);
 });
 
-router.patch('/', taskController.moveTask, (req, res) => {
+router.patch('/move', taskController.moveTask, (req, res) => {
   res.status(200).json(res.locals.movedTask);
 });
 
-router.patch('/', taskController.updateContent, (req, res) => {
+router.patch('/update', taskController.updateContent, (req, res) => {
   res.status(200).json(res.locals.updatedTask);
 });
 
