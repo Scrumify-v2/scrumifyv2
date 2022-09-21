@@ -19,7 +19,7 @@ export default function Progress() {
    ****************/
   const apiGetTasks = async () => {
     //build payload = username, category
-    const payload = { username: user, progress: 'progress' };
+    const payload = { username: user, progress: 'inprogress' };
     //fetch call, get request
     const response = await Api.getAllTasks(payload);
     //update state
