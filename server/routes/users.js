@@ -24,11 +24,16 @@ router.post('/login', userController.verifyUser, (req, res) => {
 // router.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession, (req, res) => {
 //   return res.status(200).redirect('/secret');
 // });
+
 // router.get('/user/task/:username', userController.getAllTasks, (req, res) => {
 //   return res.status(200);
 // });
 
-router.post('/logout', sessionController.logOut, (req, res) => {
+// router.post('/logout', sessionController.logOut, (req, res) => {
+//   return res.status(200).redirect('/login');
+// });
+
+router.post('/logout', (req, res) => {
   return res.status(200).redirect('/login');
 });
 
