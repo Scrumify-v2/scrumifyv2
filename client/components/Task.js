@@ -7,6 +7,11 @@ export default function Task({ _id, content, progress, taskName, user }) {
   const navigate = useNavigate();
   const [editContent, setEditContent] = useState(false);
   const [textArea, setTextArea] = useState(content);
+
+  /*****************
+   * HELPER FUNCTIONS
+   ****************/
+
   //move api call
   const handleMoveLeft = () => {
     let payload;
@@ -50,6 +55,10 @@ export default function Task({ _id, content, progress, taskName, user }) {
     await Api.moveTask;
   };
 
+  /*****************
+   * END HELPER FUNCTIONS
+   ****************/
+
   return (
     <section className='task-list task-item container'>
       <button className='move' onClick={() => handleMoveLeft()}>
@@ -59,7 +68,12 @@ export default function Task({ _id, content, progress, taskName, user }) {
         <h3>{taskName}</h3>
         {editContent ? (
           <div>
-            <textarea value={textArea}rows='4' cols='25' onChange={(e) => handleTextArea(e)} />
+            <textarea
+              value={textArea}
+              rows='4'
+              cols='25'
+              onChange={(e) => handleTextArea(e)}
+            />
             <button onClick={() => handleSubmitTextBtn()}>Submit</button>
             <button onClick={() => handleCancelTextBtn()}>Cancel</button>
           </div>
