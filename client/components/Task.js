@@ -5,6 +5,8 @@ import Api from './Api';
 
 export default function Task({ _id, content, progress, taskName, user }) {
   const navigate = useNavigate();
+  const [editContent, setEditContent] = useState(false);
+
   //move api call
   const handleMoveLeft = () => {
     let payload;
@@ -31,7 +33,7 @@ export default function Task({ _id, content, progress, taskName, user }) {
   const handleDelete = async () => {
     await Api.moveTask;
   };
-  
+
   return (
     <section className='task-list task-item container'>
       <button className='move' onClick={() => handleMoveLeft()}>
