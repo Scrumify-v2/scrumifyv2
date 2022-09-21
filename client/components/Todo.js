@@ -37,7 +37,6 @@ export default function Todo() {
     for (const task of todoTasks) {
       tasks.push(<Task key={task._id} {...task} />);
     }
-
     return (
       <section className='column'>
         <h2>Todo</h2>
@@ -45,4 +44,9 @@ export default function Todo() {
       </section>
     );
   }
+  return (
+    <section className='column'>
+      <h2>Todo</h2>
+    </section>
+  );
 }
