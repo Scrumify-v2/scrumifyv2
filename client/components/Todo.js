@@ -12,23 +12,24 @@ export default function Todo() {
   //use effect to monitor changes in task list
   useEffect(() => {
     apiGetTasks();
-  }, []);
+  });
 
   /*****************
    * HELPER FUNCTIONS
    ****************/
   const apiGetTasks = async () => {
     //build payload = username, category
-    const payload = { username: user, category: 'todo' };
+    const payload = { username: user, progress: 'todo' };
     //fetch call, get request
     const response = await Api.getAllTasks(payload);
     //update state
+    console.log(`about to setTodoTasks ${response}`);
     return setTodoTasks(response);
   };
   /*****************
    * END HELPER FUNCTIONS
    ****************/
-
+  console.log('About to fill tasks array', todoTasks);
   const tasks = [];
   //check if todoTasks is not null
   if (todoTasks) {
