@@ -23,3 +23,26 @@ body {
 a.hover {
   cursor: pointer;
 }
+
+.mainContent {
+  margin-left: 5rem;
+  margin-top: 1rem;
+  width: 90vw;
+  // max-width: 1170px;
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .mainContent{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.column {
+  background-color: slategray;
+  color: rgb(242, 238, 238);
+  border-radius: 1.5rem;
+  padding: 1rem 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
