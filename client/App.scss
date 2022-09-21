@@ -56,8 +56,11 @@ a.hover {
 }
 
 .task-item {
-  background-color: rgb(35, 37, 41);
+  background-color: rgb(32, 34, 37);
+  border-color: rgb(47, 49, 54);
+  border-style: solid;
+  border-width: 1px;
   border-radius: 1.5rem;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 2rem 2rem 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
