@@ -46,17 +46,10 @@ const Project = mongoose.model('project', projectSchema);
  */
 
 const taskSchema = new Schema({
-<<<<<<< HEAD
-  user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  taskname: { type: String, required: true },
+  user: { type: String, required: true },
+  taskName: { type: String, required: true },
   content: { type: String, required: true },
   progress: { type: String, required: true },
-=======
-  user: {type: String, required: true},
-  taskName: {type: String, required: true},
-  content: {type: String, required: true},
-  progress: {type: String, required: true}
->>>>>>> dev
 });
 
 const Task = mongoose.model('task', taskSchema);
