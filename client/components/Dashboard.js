@@ -21,7 +21,6 @@ export default function Dashboard() {
   return (
     <div>
       <h2>Scrumify v2.0</h2>
-
       <Header />
       <section className='mainContent'>
         <Todo />
