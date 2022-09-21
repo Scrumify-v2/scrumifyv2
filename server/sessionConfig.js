@@ -1,3 +1,5 @@
+///FILE IS USED FOR SESSION COOKIES
+
 const sessionConfig = {
   name: scrumify - v2,
   secret: 'danger noodle', // move to process.env.SECRET at production
