@@ -6,7 +6,7 @@ import Api from './Api';
 export default function Task({ _id, content, progress, taskName, user }) {
   const navigate = useNavigate();
   const [editContent, setEditContent] = useState(false);
-
+  const [textArea, setTextArea] = useState(content);
   //move api call
   const handleMoveLeft = () => {
     let payload;
@@ -25,10 +25,26 @@ export default function Task({ _id, content, progress, taskName, user }) {
     //api call
     const response = Api.moveTask(payload);
   };
-  //edit api call
-  const handleEdit = async () => {
-    await Api.moveTask;
+
+  const handleEditBtn = async () => {
+    setEditContent(true);
   };
+
+  const handleTextArea = (e) => setTextArea(e.target.value);
+
+  const handleSubmitTextBtn = async () => {
+    //payload is textArea
+    const payload = { taskId: _id, content: textArea };
+    //api call
+    const response = await Api.updateTask(payload);
+    setTextArea(null);
+    return setEditContent(false);
+  };
+
+  const handleCancelTextBtn = async () => {
+    return setEditContent(false);
+  };
+
   //delete api call
   const handleDelete = async () => {
     await Api.moveTask;
@@ -41,8 +57,17 @@ export default function Task({ _id, content, progress, taskName, user }) {
       </button>
       <div>
         <h3>{taskName}</h3>
-        <p>{content}</p>
-        <button className='taskButton' onClick={() => handleEdit()}>
+        {editContent ? (
+          <div>
+            <textarea value={textArea}rows='4' cols='25' onChange={(e) => handleTextArea(e)} />
+            <button onClick={() => handleSubmitTextBtn()}>Submit</button>
+            <button onClick={() => handleCancelTextBtn()}>Cancel</button>
+          </div>
+        ) : (
+          <p>{content}</p>
+        )}
+
+        <button className='taskButton' onClick={() => handleEditBtn()}>
           Edit
         </button>
         <button className='taskButton' onClick={() => handleDelete()}>

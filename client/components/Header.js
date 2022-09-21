@@ -39,8 +39,8 @@ const Header = () => {
           id='taskBox'
           placeholder='Add new task'
           required
-          onChange={(e) => handleTaskInput(e)}
-        ></input>
+          onChange={(e) => handleTaskInput(e)}>
+        </input>
         <button className='addTask' onClick={(e) => handleClick(e)}>
           Add Task
         </button>
