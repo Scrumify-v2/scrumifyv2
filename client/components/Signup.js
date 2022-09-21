@@ -26,7 +26,7 @@ const Signup = () => {
     const payload = { username: username, password: password };
     //fetch call to api to create new user account
     const verifiedUser = await Api.signup(payload);
-    setUsername(verifiedUser);
+    setUser(verifiedUser);
     return navigate('/');
   };
 

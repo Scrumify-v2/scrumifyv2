@@ -27,7 +27,7 @@ const Login = () => {
     const payload = { username: username, password: password };
     //fetch call to api to verify username and password
     const verifiedUser = await Api.login(payload);
-    setUsername(verifiedUser);
+    setUser(verifiedUser);
     return navigate('/');
   };
 
