@@ -15,7 +15,7 @@ app.use(express.static(path.resolve(__dirname, '')));
 
 app.use('/projects', projectRouter);
 
-app.use('user/task', taskRouter);
+//app.use('user/task', taskRouter);
 app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
