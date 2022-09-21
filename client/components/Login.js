@@ -9,6 +9,7 @@ const Login = () => {
   const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const [invalidEntry, setInvalidEntry] = useState(false);
 
   /*****************
    * HELPER FUNCTIONS
@@ -24,6 +25,8 @@ const Login = () => {
   };
 
   const handleLogInButton = async (e) => {
+    if (!username || !password) return setInvalidEntry(true);
+
     const payload = { username: username, password: password };
     //fetch call to api to verify username and password
     const verifiedUser = await Api.login(payload);
@@ -40,7 +43,7 @@ const Login = () => {
    ****************/
 
   return (
-    <div id='login'>
+    <div id='login' className='auth'>
       <h1>Scrumify</h1>
       <div>
         <p>Username</p>
@@ -53,11 +56,20 @@ const Login = () => {
       <button type='button' onClick={handleLogInButton}>
         Log In
       </button>
-      <p>
+
+      {invalidEntry ? (
+        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+          Invalid entry. Please check your username or password.
+        </p>
+      ) : (
+        ''
+      )}
+
+      <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
         Don't have an account?{' '}
-        <button type='button' onClick={() => handleSignUpLink()}>
+        <a href='#' onClick={() => handleSignUpLink()}>
           Sign Up
-        </button>
+        </a>
       </p>
     </div>
   );
