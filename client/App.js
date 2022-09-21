@@ -5,7 +5,6 @@ import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
-
 const UserContext = createContext([{}, () => {}]);
 
 const App = () => {
@@ -14,10 +13,11 @@ const App = () => {
 
   //render dashboard
   return (
-    <div id='root'>
+    <div id='app'>
       <UserContext.Provider value={[user, setUser]}>
         <Routes>
           <Route index element={<Dashboard />} />
+          <Route path='/*' element={<Dashboard />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
         </Routes>
