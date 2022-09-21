@@ -123,7 +123,7 @@ projectController.getProject = async(req, res, next) => {
    const project = await Project.findOne({});
    res.locals.project = project;
    return next();
-  } catch {
+  } catch (error) {
     return next({
       log: 'projectController.getProject: ERROR: invalid format for project.',
       message: {err : `Error has occured in projectController.getProject. ERROR: invalid format for project ${error}`}
