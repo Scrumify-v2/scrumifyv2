@@ -37,4 +37,21 @@ Api.signup = async (payload) => {
   return response;
 };
 
+Api.getAllTasks = async (payload) => {
+  console.log(payload);
+  const url = `/task/${payload.username}`;
+  const option = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  };
+
+  const response = await fetch(url, option)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.length) return data.filter((task) => task.category === 'todo');
+      return null;
+    })
+    .then((err) => console.log(`Error getting all ${payload.category} tasks`));
+};
+
 export default Api;
