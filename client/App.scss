@@ -1,7 +1,8 @@
 body {
   height: 1080px;
-  background-color: rgb(80,80,80);
+  background-color: rgb(35, 37, 41);
   font-family: Comic Sans MS;
+  color: rgb(242, 238, 238);
 }
 .auth {
   background-color:rgb(200, 200, 200);
@@ -40,8 +41,14 @@ a.hover {
 }
 
 .column {
-  background-color: slategray;
-  color: rgb(242, 238, 238);
+  background-color: rgb(41, 43, 48);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.task-item {
+  background-color: rgb(35, 37, 41);
   border-radius: 1.5rem;
   padding: 1rem 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
