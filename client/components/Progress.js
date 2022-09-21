@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Completed() {
+export default function Progress() {
   return (
     <section className='column'>
-      <h2>Completed</h2>
+      <h2>In-Progress</h2>
     </section>
   );
 }
