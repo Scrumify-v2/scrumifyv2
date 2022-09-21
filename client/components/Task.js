@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import Task from '../temp/Task';
 import Api from './Api';
@@ -31,8 +31,7 @@ export default function Task({ _id, content, progress, taskName, user }) {
   const handleDelete = async () => {
     await Api.moveTask;
   };
-  //Return for 'Todo'
-  // if (progress === 'todo')
+  
   return (
     <section className='task-list task-item container'>
       <button className='move' onClick={() => handleMoveLeft()}>
