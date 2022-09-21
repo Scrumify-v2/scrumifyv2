@@ -48,10 +48,46 @@ taskController.createNewTask = async (req, res, next) => {
 taskController.moveTask = async (req, res, next) => {
   try {
     const { taskId, progress } = req.body;
-    const movedTask = await Task.findByIdAndUpdate(taskId, {progress: progress});
+    const movedTask = await Task.findByIdAndUpdate(taskId, {
+      progress: progress,
+    });
+    res.locals.movedTask = movedTask;
+    return next();
   } catch (error) {
     return next({
       method: 'taskController.moveTask',
+      type: 'Middleware error',
+      error: error,
+    });
+  }
+};
+
+taskController.updateContent = async (req, res, next) => {
+  try {
+    const { taskId, content } = req.body;
+    const updatedContentTask = await Task.findByIdAndUpdate(taskId, {
+      content: content,
+    });
+    res.locals.updatedTask = updatedContentTask;
+    return next();
+  } catch (error) {
+    return next({
+      method: 'taskController.updateContent',
+      type: 'Middleware error',
+      error: error,
+    });
+  }
+};
+
+taskController.deleteTask = async (req, res, next) => {
+  try {
+    const { taskId } = req.body;
+    const deletedTask = await Task.findByIdAndDelete(taskId);
+    res.locals.deletedTask = deletedTask;
+    return next();
+  } catch (error) {
+    return next({
+      method: 'taskController.deleteTask',
       type: 'Middleware error',
       error: error,
     });
