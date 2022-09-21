@@ -79,7 +79,7 @@ Api.createTask = async (payload) => {
 Api.moveTask = async (payload) => {
   const url = '/task/move';
   const option = {
-    method: 'PUT',
+    method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   };
@@ -94,7 +94,7 @@ Api.moveTask = async (payload) => {
 Api.updateTask = async (payload) => {
   const url = '/task/update';
   const option = {
-    method: 'PUT',
+    method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   };

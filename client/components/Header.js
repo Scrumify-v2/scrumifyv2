@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <div className='header'>
       <div className='newTask'>
         <input
           type='text'
@@ -42,7 +42,7 @@ const Header = () => {
           onChange={(e) => handleTaskInput(e)}
         ></input>
         <button className='addTask' onClick={(e) => handleClick(e)}>
-        Add Task
+          Add Task
         </button>
       </div>
       <div className='logOut'>
