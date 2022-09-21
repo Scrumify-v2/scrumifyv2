@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// BELOW IS TEAM AXOLOTL'S DB -> YOU CAN USE YOUR OWN OR BE ADDED AS MEMBERS TO THIS DB
-const DB_URI = 'mongodb+srv://GoogleHireUs:750kTCminimum@cluster0.rjybe0z.mongodb.net/?retryWrites=true&w=majority';
+const DB_URI = 'mongodb+srv://adrian:themostsecurepassword@cluster0.wqkokkj.mongodb.net/?retryWrites=true&w=majority';
 
 
 mongoose.connect(DB_URI, {
@@ -18,10 +17,7 @@ mongoose.connect(DB_URI, {
 const userSchema = new Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
-  projects: {
-    type: Array,
-    default: []
-  }, 
+  tasks: [{type: Schema.Types.ObjectId, ref: 'Task'}]
 }, {minimize: false}
 );
 
@@ -33,8 +29,7 @@ const sessionSchema = new Schema({
 });
 
 const Session = mongoose.model('session', sessionSchema);
-
-// ? Implement as Linked List >> strecth 
+/* 
 const projectSchema = new Schema({
   name: {type: String, required: true},
   progress: {
@@ -44,12 +39,15 @@ const projectSchema = new Schema({
   }
 }, {minimize: false}
 );
-
 const Project = mongoose.model('project', projectSchema);
 
+ */
 
 const taskSchema = new Schema({
-  task: {type: String, required: true}
+  user: {type: String, required: true},
+  taskName: {type: String, required: true},
+  content: {type: String, required: true},
+  progress: {type: String, required: true}
 });
 
 const Task = mongoose.model('task', taskSchema);
@@ -57,6 +55,5 @@ const Task = mongoose.model('task', taskSchema);
 module.exports = {
   User,
   Session,
-  Project,
   Task
 };
