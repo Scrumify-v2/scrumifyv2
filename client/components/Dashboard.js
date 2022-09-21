@@ -21,9 +21,6 @@ export default function Dashboard() {
   return (
     <div>
       <h2>Scrumify v2.0</h2>
-      <button type='button' onClick={() => handleClick()}>
-        Log In
-      </button>
       <Header />
       <section className='mainContent'>
         <Todo />

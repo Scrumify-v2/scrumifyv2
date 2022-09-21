@@ -10,6 +10,7 @@ const Login = () => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [invalidEntry, setInvalidEntry] = useState(false);
+  const [invalidLogin, setInvalidLogin] = useState(false);
 
   /*****************
    * HELPER FUNCTIONS
@@ -25,11 +26,15 @@ const Login = () => {
   };
 
   const handleLogInButton = async (e) => {
-    if (!username || !password) return setInvalidEntry(true);
+    if (!username || !password) {
+      setInvalidLogin(false);
+      return setInvalidEntry(true);
+    }
 
     const payload = { username: username, password: password };
     //fetch call to api to verify username and password
     const verifiedUser = await Api.login(payload);
+    if (typeof verifiedUser !== 'string') return setInvalidLogin(true);
     setUser(verifiedUser);
     return navigate('/');
   };
@@ -59,7 +64,14 @@ const Login = () => {
 
       {invalidEntry ? (
         <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
-          Invalid entry. Please check your username or password.
+          Username and password fields must not be blank.
+        </p>
+      ) : (
+        ''
+      )}
+      {invalidLogin ? (
+        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+          Invalid login. Please check your username or password.
         </p>
       ) : (
         ''

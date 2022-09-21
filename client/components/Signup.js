@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
 import Api from './Api';
@@ -10,6 +10,7 @@ const Signup = () => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [invalidEntry, setInvalidEntry] = useState(false);
+  const [duplicateUser, setDuplicateUser] = useState(false);
 
   /*****************
    * HELPER FUNCTIONS
@@ -17,17 +18,20 @@ const Signup = () => {
   const handleUsernameInput = (e) => {
     setUsername(e.target.value);
   };
-
   const handlePasswordInput = (e) => {
     setPassword(e.target.value);
   };
 
   const handleSignUpButton = async (e) => {
-    if (!username || !password) return setInvalidEntry(true);
-
+    if (!username || !password) {
+      setDuplicateUser(false);
+      return setInvalidEntry(true);
+    }
+    if (username && password) setInvalidEntry(false);
     const payload = { username: username, password: password };
     //fetch call to api to create new user account
     const verifiedUser = await Api.signup(payload);
+    if (typeof verifiedUser !== 'string') return setDuplicateUser(true);
     setUser(verifiedUser);
     return navigate('/');
   };
@@ -56,7 +60,14 @@ const Signup = () => {
       </button>
       {invalidEntry ? (
         <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
-          Invalid entry. Please check your username or password.
+          Username and password fields must not be blank.
+        </p>
+      ) : (
+        ''
+      )}
+      {duplicateUser ? (
+        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+          Username already exists.
         </p>
       ) : (
         ''

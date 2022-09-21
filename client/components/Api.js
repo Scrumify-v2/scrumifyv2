@@ -28,7 +28,10 @@ Api.signup = async (payload) => {
 
   const response = await fetch(url, option)
     .then((response) => response.json())
-    .then((data) => data)
+    .then((data) => {
+      console.log(data);
+      return data;
+    })
     .catch((err) => console.log('Error with Api.signup'));
 
   return response;
