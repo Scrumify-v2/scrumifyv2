@@ -22,7 +22,10 @@ const Header = () => {
       progress: 'todo',
     };
     const addedTask = await Api.createTask(payload);
-    return setTask('');
+    setTask('');
+    document.getElementById('taskBox').value = (null);
+    return navigate('/');
+
   };
 
   const handleLogOut = () => {
@@ -38,9 +41,9 @@ const Header = () => {
           id='taskBox'
           placeholder='Add new task'
           required
-          onChange={(e) => handleTaskInput(e)}
-        ></input>
-        <button className='addTask' onClick={(e) => handleClick(e)}>
+          onChange={(e) => handleTaskInput(e)}>
+        </input>
+        <button className='addTask' onClick={() => handleClick()}>
           Add Task
         </button>
       </div>
