@@ -78,7 +78,7 @@ const Login = () => {
         ''
       )}
 
-      <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+      <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}> 
         Don't have an account?{' '}
         <a href='#' onClick={() => handleSignUpLink()}>
           Sign Up

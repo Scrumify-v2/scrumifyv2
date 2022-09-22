@@ -60,7 +60,7 @@ const Header = () => {
           Add Task
         </button>
       </div>
-        <div className='headersection'><h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2></div>
+      <div className='headersection'><h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2></div>
       <div id='logout' className='headersection'>
         <p>{user} is logged in.</p>
         <button onClick={() => handleLogOut()}>
