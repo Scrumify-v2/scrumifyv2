@@ -60,10 +60,16 @@ const Header = () => {
           Add Task
         </button>
       </div>
-      <div className='headersection'><h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2></div>
+      <div className='headersection'>
+        <h2 className='titleLogo'>
+          Scrumify <strong>v2.0</strong>
+        </h2>
+      </div>
       <div id='logout' className='headersection'>
-        <p>Current user: <strong className="userText">{user}</strong></p>
-        <button onClick={() => handleLogOut()}>
+        <p>
+          Current user: <strong className='userText'>{user}</strong>
+        </p>
+        <button className='loginButton' onClick={() => handleLogOut()}>
           Log Out
         </button>
       </div>
