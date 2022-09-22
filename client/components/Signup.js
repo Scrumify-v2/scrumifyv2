@@ -45,40 +45,54 @@ const Signup = () => {
    ****************/
 
   return (
-    <div id='signup' className='auth'>
-        <div><h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2></div>
-      <div>
-        <p>Username</p>
-        <input type='text' onChange={(e) => handleUsernameInput(e)}></input>
+    <>
+      <div className='titleLogo'>
+        <h2>
+          Scrumify <strong>v2.0</strong>
+        </h2>
       </div>
-      <div>
-        <p>Password</p>
-        <input type='password' onChange={(e) => handlePasswordInput(e)}></input>
+
+      <div id='signup' className='auth'>
+        <div className='loginFields'>
+          <p>Username</p>
+          <input type='text' onChange={(e) => handleUsernameInput(e)}></input>
+        </div>
+        <div>
+          <p>Password</p>
+          <input
+            type='password'
+            onChange={(e) => handlePasswordInput(e)}
+          ></input>
+        </div>
+        <button
+          className='loginButton'
+          type='button'
+          onClick={handleSignUpButton}
+        >
+          Sign Up
+        </button>
+        {invalidEntry ? (
+          <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+            Username and password fields must not be blank.
+          </p>
+        ) : (
+          ''
+        )}
+        {duplicateUser ? (
+          <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+            Username already exists.
+          </p>
+        ) : (
+          ''
+        )}
+        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+          Have an account?{' '}
+          <a href='#' onClick={() => handleLogInLink()}>
+            Log In
+          </a>
+        </p>
       </div>
-      <button type='button' onClick={handleSignUpButton}>
-        Sign Up
-      </button>
-      {invalidEntry ? (
-        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
-          Username and password fields must not be blank.
-        </p>
-      ) : (
-        ''
-      )}
-      {duplicateUser ? (
-        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
-          Username already exists.
-        </p>
-      ) : (
-        ''
-      )}
-      <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
-        Have an account?{' '}
-        <a href='#' onClick={() => handleLogInLink()}>
-          Log In
-        </a>
-      </p>
-    </div>
+    </>
   );
 };
 
