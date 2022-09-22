@@ -33,9 +33,10 @@ const Login = () => {
 
     const payload = { username: username, password: password };
     //fetch call to api to verify username and password
-    const verifiedUser = await Api.login(payload);
-    if (typeof verifiedUser !== 'string') return setInvalidLogin(true);
-    setUser(verifiedUser);
+    const response = await Api.login(payload);
+    console.log(response);
+    if (typeof response !== 'string') return setInvalidLogin(true);
+    setUser(response);
     return navigate('/');
   };
 

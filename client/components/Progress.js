@@ -3,11 +3,11 @@ import { UserContext } from '../App';
 import Task from './Task';
 import Api from './Api';
 
-export default function Progress() {
+export default function Progress(props) {
   //user context
   const [user, setUser] = useContext(UserContext);
   //declare state for tasks
-  const [todoTasks, setTodoTasks] = useState(null);
+  const [allTasks, setAllTasks] = useState(null);
 
   //use effect to monitor changes in task list
   useEffect(() => {
@@ -18,36 +18,34 @@ export default function Progress() {
    * HELPER FUNCTIONS
    ****************/
   const apiGetTasks = async () => {
-    //build payload = username, category
-    const payload = { username: user, progress: 'inprogress' };
+    //build payload = user, progress
+    const payload = { user: user, progress: props.progress };
     //fetch call, get request
     const response = await Api.getAllTasks(payload);
     //update state
-    console.log(`about to setTodoTasks ${response}`);
-    return setTodoTasks(response);
+    return setAllTasks(response);
   };
   /*****************
    * END HELPER FUNCTIONS
    ****************/
-  console.log('About to fill tasks array', todoTasks);
-  const tasks = [];
+  const taskArray = [];
   //check if todoTasks is not null
-  if (todoTasks) {
+  if (allTasks) {
     //iterate thru array of todoTasks
     //build the tasks to be generated
-    for (const task of todoTasks) {
-      tasks.push(<Task key={task._id} {...task} />);
+    for (const task of allTasks) {
+      taskArray.push(<Task key={task._id} {...task} />);
     }
     return (
       <section className='column'>
-        <h2>In Progress</h2>
-        {tasks.length > 0 ? tasks : ''}
+        <h2>{props.name}</h2>
+        {taskArray.length > 0 ? taskArray : ''}
       </section>
     );
   }
   return (
     <section className='column'>
-      <h2>In Progress</h2>
+      <h2>{props.name}</h2>
     </section>
   );
 }

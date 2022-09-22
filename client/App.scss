@@ -59,7 +59,11 @@ a.hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   height: 80vh;
   text-align: center;
+  overflow: auto;
+  scrollbar-color: rgb(40, 40, 40);
 }
+
+
 
 .task-item {
   background-color: rgb(32, 34, 37);

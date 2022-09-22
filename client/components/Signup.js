@@ -30,9 +30,9 @@ const Signup = () => {
     if (username && password) setInvalidEntry(false);
     const payload = { username: username, password: password };
     //fetch call to api to create new user account
-    const verifiedUser = await Api.signup(payload);
-    if (typeof verifiedUser !== 'string') return setDuplicateUser(true);
-    setUser(verifiedUser);
+    const response = await Api.signup(payload);
+    if (typeof response !== 'string') return setDuplicateUser(true);
+    setUser(response);
     return navigate('/');
   };
 
