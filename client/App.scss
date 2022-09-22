@@ -19,7 +19,7 @@ body {
   background-color:rgb(200, 200, 200);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;;
+  justify-content: space-between;
   align-items: center;
   height: 400px;
   width: 300px;
@@ -50,10 +50,14 @@ a.hover {
   justify-content: center;
   align-items: center;
   width: 32%;
+  .userText {
+    color: rgb(230, 230, 230);
+    text-shadow: 1px 1px 3px rgb(87,101,242);
+  }
 };
 
 .mainContent {
-  margin-left: 5rem;
+  margin-left: 8rem;
   margin-top: 1rem;
   width: 90vw;
   // max-width: 1170px;
@@ -82,20 +86,88 @@ a.hover {
 }
 
 .task-item {
+  display: flex;
+  justify-content: space-evenly;
   background-color: rgb(66,70,78);
   border-radius: 1rem;
-  padding: 0.5rem 2rem 2rem 2rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
   margin: 15px 0px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  .bi {
+    color: rgb(66,70,78);
+  }
+
+  .taskButton {
+    align-items: center;
+    padding-top: 4px;
+    background-color: rgb(66,70,78);
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    border: none;
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+
+  .taskTitle {
+    max-width: 90%;
+    word-wrap: break-word;
+    padding: 5px;
+    font-family: 'Lexend Deca';
+  }
+
+  .taskContent {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lexend Deca';
+    font-weight: 300;
+    width: 90%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+  }
+  .taskText {
+    max-width: 90%;
+    word-wrap: break-word;
+    margin-top: 5px;
+  }
+  .taskButtonContainer {
+    width: 30%;
+    display: flex;
+    margin: 10px 10px 0px 10px;
+    justify-content: space-between;
+  }
+
+  color: rgb(245,245,245);
+
   &:hover{
     box-shadow: 1px 1px 6px rgb(78, 78, 78);
+    .moveButton {
+      color: rgb(245,245,245);
+      filter:alpha(opacity=100);
+      -webkit-transition: all 0.8s ease-in-out;
+      -moz-transition: all 0.8s ease-in-out;
+      -o-transition: all 0.8s ease-in-out;
+      transition: all 0.8s ease-in-out;
+    }
+    .taskButton {
+      background-color:rgb(245,245,245);
+      filter:alpha(opacity=100);
+      -webkit-transition: all 0.6s ease-in-out;
+      -moz-transition: all 0.6s ease-in-out;
+      -o-transition: all 0.6s ease-in-out;
+      transition: all 0.6s ease-in-out;
+    }
+
   }
 }
 
 // getting rid of styling completely on move buttons 
 .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   .move {
       background: none;
@@ -117,8 +189,7 @@ a.hover {
   strong {
     font-size: 12px;
   }
-  &:hover{
-  }
+
 }
 
 #logout {
@@ -162,4 +233,55 @@ a.hover {
 //the progress bar of the scrollbar
 *::-webkit-scrollbar-thumb {
   background-color: rgb(66,70,78)
+}
+
+.modal {
+  width: 100%;
+  margin: 10px;
+  textarea {
+    background-color: rgb(66,70,78);
+    color: rgb(245,245,245);
+    font-family: 'Lexend Deca';
+    font-size: 16px;
+    font-weight: 300;
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+    resize: none;
+  }
+  .modalButtonArea {
+    margin: 0 auto;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .modalButton {
+    align-items: center;
+    padding-top: 4px;
+    background-color: rgb(245,245,245);
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    border: none;
+    &:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
+  }
+}
+
+.progressTitle {
+  font-family: 'Lexend Deca';
+}
+
+#todo .progressTitle {
+  text-shadow: 1px 2px 3px rgb(237,66,69);
+}
+
+#inprogress .progressTitle {
+  text-shadow: 1px 2px 3px rgb(194,128,25);
+}
+
+#completed .progressTitle {
+  text-shadow: 1px 2px 3px rgb(58,165,93);
 }
