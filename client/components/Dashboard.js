@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h2>Scrumify v2.0</h2>
+      <h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2>
       <Header />
       <section className='mainContent'>
         <Todo />

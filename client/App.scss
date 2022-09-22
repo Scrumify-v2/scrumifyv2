@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   // height: 1080px;
   height: 50vh;
@@ -54,7 +59,7 @@ a.hover {
   border-style: solid;
   border-width: 1px;
   // background-color: salmon;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   padding: 1rem 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   height: 80vh;
@@ -62,11 +67,11 @@ a.hover {
 }
 
 .task-item {
-  background-color: rgb(32, 34, 37);
+  background-color: rgb(73, 73, 73);
   border-color: rgb(47, 49, 54);
   border-style: solid;
   border-width: 1px;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   padding: 0.5rem 2rem 2rem 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -84,5 +89,19 @@ a.hover {
 	  font: inherit;
 	  cursor: pointer;
 	  outline: inherit;
+  }
+}
+
+.titleLogo {
+  font-family: 'Carter One';
+  font-size: 30px;
+  text-shadow: 2px 2px 3px teal;
+  padding-left: 20px;
+  padding-top: 10px;
+  strong {
+    font-size: 12px;
+  }
+  &:hover{
+    text-shadow: 2px 2px 3px teal;
   }
 }
