@@ -131,7 +131,7 @@ a.hover {
   border-radius: 1rem;
   padding: 1rem 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  height: 80vh;
+  height: 77vh;
   text-align: center;
   overflow: auto;
   scrollbar-color: rgb(40, 40, 40);
@@ -344,4 +344,57 @@ a.hover {
 
 #completed .progressTitle {
   text-shadow: 1px 2px 3px rgb(58,165,93);
+}
+
+
+#taskBox {
+  text-align: center;
+  background-color: rgb(66,70,78);
+  color: rgb(245,245,245);
+  font-family: 'Lexend Deca';
+  width:80%;
+  height: 2rem;
+  border-radius: 3px;
+  border: none;
+  height: min-content;
+  margin-bottom: 5px;
+  &::placeholder {
+    color: rgb(245,245,245);
+    text-align: center; 
+  }
+  &:hover {
+    box-shadow: 1px 1px 6px rgb(78, 78, 78);
+  }
+}
+
+#contentBox {
+  text-align: center;
+  background-color: rgb(66,70,78);
+  color: rgb(245,245,245);
+  font-family: 'Lexend Deca';
+  width:80%;
+  border-radius: 3px;
+  border: none;
+  height: 2rem;
+  &::placeholder {
+    color: rgb(245,245,245);
+    text-align: center; 
+  }
+  margin-bottom: 5px;
+  &:hover {
+    box-shadow: 1px 1px 6px rgb(78, 78, 78);
+  }
+}
+
+.addTask {
+  background-color: rgb(245,245,245);
+  color: rgb(32,34,37);
+  padding: 0.25rem 0.5rem;
+  font-family: 'Lexend Deca';
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
 }
