@@ -41,7 +41,7 @@ const Header = () => {
 
   return (
     <div className='header'>
-      <div className='newTask'>
+      <div className='headersection'>
         <input
           type='text'
           id='taskBox'
@@ -60,9 +60,10 @@ const Header = () => {
           Add Task
         </button>
       </div>
-      <div className='logOut'>
+        <div className='headersection'><h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2></div>
+      <div id='logout' className='headersection'>
         <p>{user} is logged in.</p>
-        <button className='logOut' onClick={() => handleLogOut()}>
+        <button onClick={() => handleLogOut()}>
           Log Out
         </button>
       </div>

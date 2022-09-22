@@ -13,13 +13,12 @@ export default function Dashboard() {
   });
 
   return (
-    <div>
-      <h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2>
+    <div className='dashboard'>
       <Header />
       <section className='mainContent'>
-        <Progress name='To Do' progress='todo' />
-        <Progress name='In Progress' progress='inprogress' />
-        <Progress name='Completed' progress='completed' />
+        <Progress id='todo' name='To Do' progress='todo' />
+        <Progress id='inprogress' name='In Progress' progress='inprogress' />
+        <Progress id='completed' name='Completed' progress='completed' />
       </section>
     </div>
   );
