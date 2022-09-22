@@ -5,9 +5,9 @@ import Api from './Api';
 
 const Header = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useContext(UserContext);
   const [task, setTask] = useState('');
   const [content, setContent] = useState('');
-  const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState(null);
 
   const handleTaskInput = (e) => {
@@ -35,7 +35,7 @@ const Header = () => {
   };
 
   const handleLogOut = () => {
-    setUsername(null);
+    setUser(null);
     return navigate('/login');
   };
 

@@ -1,10 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../App';
+import { UserContext } from '../App.js';
 import Header from './Header.js';
-import Todo from './Todo.js';
 import Progress from './Progress.js';
-import Completed from './Completed.js';
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -14,18 +12,14 @@ export default function Dashboard() {
     if (!user) return navigate('/login');
   });
 
-  const handleClick = () => {
-    return navigate('/login');
-  };
-
   return (
     <div>
       <h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2>
       <Header />
       <section className='mainContent'>
-        <Todo />
-        <Progress />
-        <Completed />
+        <Progress name='To Do' progress='todo' />
+        <Progress name='In Progress' progress='inprogress' />
+        <Progress name='Completed' progress='completed' />
       </section>
     </div>
   );

@@ -30,9 +30,9 @@ const Signup = () => {
     if (username && password) setInvalidEntry(false);
     const payload = { username: username, password: password };
     //fetch call to api to create new user account
-    const verifiedUser = await Api.signup(payload);
-    if (typeof verifiedUser !== 'string') return setDuplicateUser(true);
-    setUser(verifiedUser);
+    const response = await Api.signup(payload);
+    if (typeof response !== 'string') return setDuplicateUser(true);
+    setUser(response);
     return navigate('/');
   };
 
@@ -53,7 +53,7 @@ const Signup = () => {
       </div>
       <div>
         <p>Password</p>
-        <input type='text' onChange={(e) => handlePasswordInput(e)}></input>
+        <input type='password' onChange={(e) => handlePasswordInput(e)}></input>
       </div>
       <button type='button' onClick={handleSignUpButton}>
         Sign Up
