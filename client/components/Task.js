@@ -1,6 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Task from '../temp/Task';
 import Api from './Api';
 
 export default function Task({ _id, content, progress, taskName, user }) {
@@ -53,7 +52,7 @@ export default function Task({ _id, content, progress, taskName, user }) {
   //delete api call
   const handleDelete = () => {
     const payload = { taskId: _id };
-    const response = Api.deleteTask (payload);
+    const response = Api.deleteTask(payload);
     return response;
   };
 

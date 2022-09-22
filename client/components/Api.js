@@ -38,11 +38,13 @@ Api.signup = async (payload) => {
 };
 
 Api.getAllTasks = async (payload) => {
-  console.log(payload);
-  const url = `/task/${payload.username}`;
+  console.log('GETALLTASKS',payload);
+  const url = `/task/${payload.user}`;
   const option = {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+    },
   };
 
   const response = await fetch(url, option)
