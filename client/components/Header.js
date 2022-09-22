@@ -23,7 +23,8 @@ const Header = () => {
     };
     const addedTask = await Api.createTask(payload);
     setTask('');
-    return;
+    document.getElementById('taskBox').value = (null);
+    return navigate('/');
   };
 
   const handleLogOut = () => {
@@ -41,7 +42,7 @@ const Header = () => {
           required
           onChange={(e) => handleTaskInput(e)}>
         </input>
-        <button className='addTask' onClick={(e) => handleClick(e)}>
+        <button className='addTask' onClick={() => handleClick()}>
           Add Task
         </button>
       </div>
