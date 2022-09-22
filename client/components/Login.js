@@ -57,7 +57,7 @@ const Login = () => {
       </div>
       <div>
         <p>Password</p>
-        <input type='text' onChange={(e) => handlePasswordInput(e)}></input>
+        <input type='password' onChange={(e) => handlePasswordInput(e)}></input>
       </div>
       <button type='button' onClick={handleLogInButton}>
         Log In
