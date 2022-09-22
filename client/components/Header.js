@@ -6,6 +6,7 @@ import Api from './Api';
 const Header = () => {
   const navigate = useNavigate();
   const [task, setTask] = useState('');
+  const [content, setContent] = useState('');
   const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState(null);
 
@@ -14,18 +15,23 @@ const Header = () => {
     setTask(e.target.value);
   };
 
+  const handleContentInput = (e) => {
+    setContent(e.target.value);
+  };
+
   const handleClick = async () => {
     const payload = {
       user: user,
       taskName: task,
-      content: '',
+      content: content,
       progress: 'todo',
     };
     const addedTask = await Api.createTask(payload);
     setTask('');
-    document.getElementById('taskBox').value = (null);
+    setContent('');
+    document.getElementById('contentBox').value = null;
+    document.getElementById('taskBox').value = null;
     return navigate('/');
-
   };
 
   const handleLogOut = () => {
@@ -41,8 +47,15 @@ const Header = () => {
           id='taskBox'
           placeholder='Add new task'
           required
-          onChange={(e) => handleTaskInput(e)}>
-        </input>
+          onChange={(e) => handleTaskInput(e)}
+        ></input>
+        <input
+          type='text'
+          id='contentBox'
+          placeholder='Add description'
+          required
+          onChange={(e) => handleContentInput(e)}
+        ></input>
         <button className='addTask' onClick={() => handleClick()}>
           Add Task
         </button>
