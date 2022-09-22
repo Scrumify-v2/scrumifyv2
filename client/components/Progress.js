@@ -28,6 +28,7 @@ export default function Progress(props) {
   /*****************
    * END HELPER FUNCTIONS
    ****************/
+  const columnName = props.progress;
   const taskArray = [];
   //check if todoTasks is not null
   if (allTasks) {
@@ -37,15 +38,15 @@ export default function Progress(props) {
       taskArray.push(<Task key={task._id} {...task} />);
     }
     return (
-      <section className='column'>
-        <h2>{props.name}</h2>
+      <section className='column' id={columnName}>
+        <h2 className='progressTitle'>{props.name}</h2>
         {taskArray.length > 0 ? taskArray : ''}
       </section>
     );
   }
   return (
     <section className='column'>
-      <h2>{props.name}</h2>
+      <h2 className='progressTitle'>{props.name}</h2>
     </section>
   );
 }
