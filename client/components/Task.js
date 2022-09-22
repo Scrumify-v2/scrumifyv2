@@ -51,8 +51,10 @@ export default function Task({ _id, content, progress, taskName, user }) {
   };
 
   //delete api call
-  const handleDelete = async () => {
-    await Api.moveTask;
+  const handleDelete = () => {
+    const payload = { taskId: _id };
+    const response = Api.deleteTask (payload);
+    return response;
   };
 
   /*****************
