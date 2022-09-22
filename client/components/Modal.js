@@ -6,7 +6,7 @@ const Modal = ({ closeModal, invalidMessage }) => {
       closeModal(false);
     }, 2500);
   });
-  return <div className='modal'>{invalidMessage}</div>;
+  return <div className='modal-login'>{invalidMessage}</div>;
 };
 
 export default Modal;
