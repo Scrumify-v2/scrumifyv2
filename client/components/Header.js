@@ -18,12 +18,11 @@ const Header = () => {
     const payload = {
       user: user,
       taskName: task,
-      content: 'TBD',
+      content: '',
       progress: 'todo',
     };
     const addedTask = await Api.createTask(payload);
-    setTask('');
-    return;
+    return setTask('');
   };
 
   const handleLogOut = () => {
