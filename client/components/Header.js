@@ -18,12 +18,11 @@ const Header = () => {
     const payload = {
       user: user,
       taskName: task,
-      content: 'TBD',
+      content: '',
       progress: 'todo',
     };
     const addedTask = await Api.createTask(payload);
-    setTask('');
-    return;
+    return setTask('');
   };
 
   const handleLogOut = () => {
@@ -39,13 +38,14 @@ const Header = () => {
           id='taskBox'
           placeholder='Add new task'
           required
-          onChange={(e) => handleTaskInput(e)}>
-        </input>
+          onChange={(e) => handleTaskInput(e)}
+        ></input>
         <button className='addTask' onClick={(e) => handleClick(e)}>
           Add Task
         </button>
       </div>
       <div className='logOut'>
+        <p>{user} is logged in.</p>
         <button className='logOut' onClick={() => handleLogOut()}>
           Log Out
         </button>
