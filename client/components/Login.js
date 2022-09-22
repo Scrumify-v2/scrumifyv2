@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <div id='login' className='auth'>
-      <h1>Scrumify</h1>
+        <div><h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2></div>
       <div>
         <p>Username</p>
         <input type='text' onChange={(e) => handleUsernameInput(e)}></input>
