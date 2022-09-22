@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
 import Api from './Api';
+import Modal from './Modal';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,7 +35,6 @@ const Login = () => {
     const payload = { username: username, password: password };
     //fetch call to api to verify username and password
     const response = await Api.login(payload);
-    console.log(response);
     if (typeof response !== 'string') return setInvalidLogin(true);
     setUser(response);
     return navigate('/');
@@ -44,47 +44,64 @@ const Login = () => {
     return navigate('/signup');
   };
 
+  const closeModal = (val) => {
+    setInvalidEntry(val);
+    setInvalidLogin(val);
+  };
+
   /*****************
    * END HELPER FUNCTIONS
    ****************/
 
   return (
-    <div id='login' className='auth'>
-        <div><h2 className='titleLogo'>Scrumify <strong>v2.0</strong></h2></div>
-      <div>
-        <p>Username</p>
-        <input type='text' onChange={(e) => handleUsernameInput(e)}></input>
+    <>
+      <div className='titleLogo'>
+        <h2>
+          Scrumify <strong>v2.0</strong>
+        </h2>
       </div>
-      <div>
-        <p>Password</p>
-        <input type='password' onChange={(e) => handlePasswordInput(e)}></input>
+      <div id='login' className='auth'>
+        <div className='loginFields'>
+          <p>Username</p>
+          <input type='text' onChange={(e) => handleUsernameInput(e)}></input>
+        </div>
+        <div>
+          <p>Password</p>
+          <input
+            type='password'
+            onChange={(e) => handlePasswordInput(e)}
+          ></input>
+        </div>
+        <button
+          className='loginButton'
+          type='button'
+          onClick={handleLogInButton}
+        >
+          Log In
+        </button>
+
+        {invalidEntry && (
+          <Modal
+            closeModal={closeModal}
+            invalidMessage={'Username and password fields must not be blank.'}
+          />
+        )}
+
+        {invalidLogin && (
+          <Modal
+            closeModal={closeModal}
+            invalidMessage={'Please check your username and/or password.'}
+          />
+        )}
+
+        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
+          Don&apos;t have an account?{' '}
+          <a href='#' onClick={() => handleSignUpLink()}>
+            Sign Up
+          </a>
+        </p>
       </div>
-      <button type='button' onClick={handleLogInButton}>
-        Log In
-      </button>
-
-      {invalidEntry ? (
-        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
-          Username and password fields must not be blank.
-        </p>
-      ) : (
-        ''
-      )}
-      {invalidLogin ? (
-        <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
-          Invalid login. Please check your username or password.
-        </p>
-      ) : (
-        ''
-      )}
-
-      <p style={{ fontSize: '12px', textAlign: 'center', width: '200px' }}>
-        Don't have an account?{' '}
-        <a href='#' onClick={() => handleSignUpLink()}>
-          Sign Up
-        </a>
-      </p>
-    </div>
+    </>
   );
 };
 
